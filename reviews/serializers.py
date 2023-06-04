@@ -18,7 +18,7 @@ class ReviewSerializer(serializers.HyperlinkedModelSerializer):
         tags = validated_data.pop('tags', [])
         instance = Review.objects.create(**validated_data)
         for tag in tags:
-            tag_instance = Tag.objects.get_or_create(name=tag.name)
+            tag_instance, _ = Tag.objects.get_or_create(name=tag["name"])
             instance.tags.add(tag_instance)
         return instance
     
