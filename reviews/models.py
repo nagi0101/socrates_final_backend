@@ -7,7 +7,7 @@ class Tag(models.Model):
     updated_at=models.DateTimeField(auto_now=True)
 
 class Review(models.Model):
-    place_id=models.PositiveIntegerField()
+    place_id=models.PositiveIntegerField(primary_key=True, editable=True)
     content=models.TextField()
     rate=models.FloatField()
     tags=models.ManyToManyField(Tag, blank=True)

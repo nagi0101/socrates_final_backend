@@ -9,6 +9,7 @@ class TagSerializer(serializers.HyperlinkedModelSerializer):
 
 class ReviewSerializer(serializers.HyperlinkedModelSerializer):
     tags=TagSerializer(many=True, required=False)
+    place_id=serializers.IntegerField()
     
     class Meta:
         model=Review
