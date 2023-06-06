@@ -9,6 +9,7 @@ class Tag(models.Model):
 
 class Review(models.Model):
     place_id=models.PositiveIntegerField()
+    place_name=models.TextField()
     content=models.TextField()
     rate=models.FloatField(
         validators=[MinValueValidator(1.0), MaxValueValidator(5.0)]
